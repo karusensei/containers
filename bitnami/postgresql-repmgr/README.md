@@ -635,6 +635,7 @@ Refer to [issues/27124](https://github.com/bitnami/containers/issues/27124) for 
 | `POSTGRESQL_AUTOCTL_MONITOR_HOST`          | Hostname for the monitor component                                                                   | `monitor`                                  |
 | `POSTGRESQL_AUTOCTL_HOSTNAME`              | Hostname by which postgres is reachable                                                              | `$(hostname --fqdn)`                       |
 | `REPMGR_DATA_DIR`                          | Replication Manager data directory                                                                   | `${REPMGR_VOLUME_DIR}/repmgr/data`         |
+| `REPMGR_SKIP_SETUP`                        | Skip Replication manager (and PostgreSQL) setup.                                                     | `no`                                       |
 | `REPMGR_NODE_ID`                           | Replication Manager node identifier                                                                  | `nil`                                      |
 | `REPMGR_NODE_ID_START_SEED`                | Replication Manager node identifier start seed                                                       | `1000`                                     |
 | `REPMGR_NODE_NAME`                         | Replication Manager node name                                                                        | `$(hostname)`                              |
@@ -722,6 +723,12 @@ Refer to [issues/27124](https://github.com/bitnami/containers/issues/27124) for 
 | `POSTGRESQL_REPLICATION_PASSFILE_PATH`       | Path to store passfile                                          | `$REPMGR_PASSFILE_PATH`                       |
 | `POSTGRESQL_MASTER_HOST`                     | PostgreSQL master host                                          | `$REPMGR_PRIMARY_HOST`                        |
 | `POSTGRESQL_MASTER_PORT_NUMBER`              | PostgreSQL master host port                                     | `$REPMGR_PRIMARY_PORT`                        |
+
+### FIPS configuration in Bitnami Secure Images
+
+The Bitnami PostgreSQL HA Docker image from the [Bitnami Secure Images](https://www.arrow.com/globalecs/uk/products/bitnami-secure-images/) catalog includes extra features and settings to configure the container with FIPS capabilities. You can configure the next environment variables:
+
+- `OPENSSL_FIPS`: whether OpenSSL runs in FIPS mode or not. `yes` (default), `no`.
 
 ## Logging
 

@@ -1,10 +1,11 @@
-# KSQL DB packaged by Bitnami
+# Bitnami package for Confluent KSQL DB
 
-## What is ksql?
+## What is Confluent KSQL DB?
 
-> Confluent KSQL DB is an event streaming database that helps you build stream processing apps
+> ksqlDB is a database for building stream processing applications on top of Apache Kafka. It is distributed, scalable, reliable, and real-time.
 
-[Overview of ksql](https://www.confluent.io/)
+[Overview of Confluent KSQL DB](https://www.confluent.io)
+Trademarks: This software listing is packaged by Bitnami. The respective trademarks mentioned in the offering are owned by the respective companies, and use of them does not imply any affiliation or endorsement.
 
 ## TL;DR
 
@@ -94,6 +95,12 @@ docker build -t bitnami/APP:latest .
 | `KSQL_DAEMON_GROUP`              | Group that will execute the KSQL Server process.                                          | `ksql`                                    |
 | `KSQL_DEFAULT_LISTENERS`         | Comma-separated list of listeners that listen for API requests over either HTTP or HTTPS. | `http://0.0.0.0:8088`                     |
 | `KSQL_DEFAULT_BOOTSTRAP_SERVERS` | List of Kafka brokers to bootstrap Kafka cluster information from.                        | `localhost:9092`                          |
+
+### FIPS configuration in Bitnami Secure Images
+
+The Bitnami Confluent KSQL DB Docker image from the [Bitnami Secure Images](https://www.arrow.com/globalecs/uk/products/bitnami-secure-images/) catalog includes extra features and settings to configure the container with FIPS capabilities. You can configure the next environment variables:
+
+- `OPENSSL_FIPS`: whether OpenSSL runs in FIPS mode or not. `yes` (default), `no`.
 
 ## Notable Changes
 

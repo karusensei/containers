@@ -290,8 +290,8 @@ volumes:
 | Name                            | Description                                         | Default Value |
 |---------------------------------|-----------------------------------------------------|---------------|
 | `CONSUL_RPC_PORT_NUMBER`        | Consul RPC port number.                             | `8300`        |
-| `CONSUL_HTTP_PORT_NUMBER`       | Consul RPC port number.                             | `8500`        |
-| `CONSUL_DNS_PORT_NUMBER`        | Consul DNS port number.                             | `8600`        |
+| `CONSUL_HTTP_PORT_NUMBER`       | Consul HTTP port number.                            | `8500`        |
+| `CONSUL_HTTPS_PORT_NUMBER`      | Consul HTTPS port number.                           | `-1`          |
 | `CONSUL_DNS_PORT_NUMBER`        | Consul DNS port number.                             | `8600`        |
 | `CONSUL_AGENT_MODE`             | Consul agent mode.                                  | `server`      |
 | `CONSUL_DISABLE_KEYRING_FILE`   | Disable keyring file in Consul.                     | `false`       |
@@ -427,6 +427,12 @@ consul:
 ```
 
 The container has a HashiCorp Consul configuration directory set up at /consul/config and the agent will load any configuration files placed here by binding a volume or by composing a new image and adding files. Alternatively, configuration can be added by passing the configuration JSON via environment variable CONSUL_LOCAL_CONFIG. If this is bind mounted then ownership will be changed to the consul user when the container starts.
+
+### FIPS configuration in Bitnami Secure Images
+
+The Bitnami HashiCorp Consul Docker image from the [Bitnami Secure Images](https://www.arrow.com/globalecs/uk/products/bitnami-secure-images/) catalog includes extra features and settings to configure the container with FIPS capabilities. You can configure the next environment variables:
+
+- `OPENSSL_FIPS`: whether OpenSSL runs in FIPS mode or not. `yes` (default), `no`.
 
 ## Logging
 
